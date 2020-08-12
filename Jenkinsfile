@@ -3,19 +3,20 @@ pipeline {
    stages {
       stage('Build docker image') {
          steps {
-            sh 'docker build -t ankitjethi/devops-task:$BUILD_NUMBER . \
-            && docker build -t ankitjethi/devops-task:latest .'
+             script {
+                 app = docker.build("ankitjethi/devops-task:${env.BUILD_NUMBER}")
+             }
          }
       }
       stage('Push docker image to Docker Hub') {
          steps {
             script {
-                docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
-                    docker.build('ankitjethi/devops-task').push('$BUILD_NUMBER')
-                    docker.build('ankitjethi/devops-task').push('latest')
+                docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-login') {
+                    app.push("${env.BUILD_NUMBER}")
+                    app.push('latest')
                 }
             }
          }
-      }      
+      }
    }
 }
