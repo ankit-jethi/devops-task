@@ -6,7 +6,7 @@ metadata:
 spec:
   selector:
     app: devops-task
-    version: "${env.BUILD_NUMBER}"
+    version: "VER_NUM"
   type:  NodePort
   ports:
   - port: 8000
