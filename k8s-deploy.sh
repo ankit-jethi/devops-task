@@ -4,7 +4,7 @@
 kubectl apply -f 01-namespace.yml
 
 # Create deployment
-cat > deployment-${env.BUILD_NUMBER}.yml <<EOF
+cat > deployment-${BUILD_NUMBER}.yml <<EOF
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -41,4 +41,4 @@ spec:
 EOF
 
 # Apply deployment
-kubectl apply -f deployment-${env.BUILD_NUMBER}.yml
+kubectl apply -f deployment-${BUILD_NUMBER}.yml
