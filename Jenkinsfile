@@ -4,7 +4,7 @@ pipeline {
       stage('Build image') {
          steps {
              script {
-                 app = docker.build("ankitjethi/devops-task:${env.BUILD_NUMBER}")
+                 app = docker.build("ankitjethi/devops-task:${BUILD_NUMBER}")
              }
          }
       }
@@ -20,7 +20,7 @@ pipeline {
       }
       stage('Deploy app') {
          steps {
-            sh './k8s-deploy.sh'
+            sh 'chmod +x k8s-deploy.sh && ./k8s-deploy.sh'
          }
       }
    }
