@@ -8,25 +8,25 @@ cat > deployment-${BUILD_NUMBER}.yml <<EOF
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: devops-task-deployment-${env.BUILD_NUMBER}
+  name: devops-task-deployment-${BUILD_NUMBER}
   labels:
     app: devops-task
-    version: "${env.BUILD_NUMBER}"
+    version: "${BUILD_NUMBER}"
   namespace: devops-task-namespace
 spec:
   replicas: 2
   selector:
     matchLabels:
       app: devops-task
-      version: "${env.BUILD_NUMBER}"
+      version: "${BUILD_NUMBER}"
   template:
     metadata:
       labels:
         app: devops-task
-        version: "${env.BUILD_NUMBER}"
+        version: "${BUILD_NUMBER}"
     spec:
       containers:
-      - image: ankitjethi/devops-task:${env.BUILD_NUMBER}
+      - image: ankitjethi/devops-task:${BUILD_NUMBER}
         name: devops-task
         ports:
         - containerPort: 8000
