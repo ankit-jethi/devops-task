@@ -20,8 +20,7 @@ pipeline {
       }
       stage('Deploy app') {
          steps {
-            sh 'kubectl apply -f 01-namespace.yml \
-            && kubectl apply -f 02-devops-task.yml'
+            sh './k8s-deploy.sh'
          }
       }
    }
