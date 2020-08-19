@@ -20,10 +20,6 @@ Installed kubectl on the Jenkins server and setup authentication using the **kub
 - Then it waits for user input for switching the [service](../master/service.yml) resource to the latest deployment.
 - And then finally, waits for user input again before deleting the previous deployment.
 
-### The URLs for Jenkins as well as the hosted application.
-1. Jenkins URL - [http://jenkins.ankitjethi.online:8080/](http://jenkins.ankitjethi.online:8080/)
-2. Application URL - [http://sc.ankitjethi.online:30000/](http://sc.ankitjethi.online:30000/)
-
 
 ### Sources:
 
